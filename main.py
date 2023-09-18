@@ -1,3 +1,6 @@
+# Igor Kuznetsov
+
+
 import commands as com
 from functions import dialogue, first_coms, second_coms, third_coms, fourth_coms, fifth_coms, sixth_coms
 
@@ -5,6 +8,8 @@ from functions import dialogue, first_coms, second_coms, third_coms, fourth_coms
 i = 0
 print(com.GREETING)
 answer = dialogue(0)
+
+
 while answer.lower() != 'exit':
     if answer.lower() == 'next' and i < 5:
         i += 1

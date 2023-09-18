@@ -3,34 +3,35 @@ from textblob import Word
 import commands as com
 from textblob.classifiers import NaiveBayesClassifier
 from googletrans import Translator
+
+
 translator = Translator()
-set_com = [(com.TAGS, com.NOUN_PHRASES, com.SENTIMENT, com.WORDS),
+set_com = [(com.TRANSLATE, com.DETECT_LANG),
            (com.SENTENCES, com.SINGULARIZE, com.PLURALIZE, com.LEMMATIZE),
            (com.SYNSETS, com.DEFINITIONS, com.CORRECT, com.SPELLCHECK),
            (com.COUNT, com.PARSE, com.NGRAMS, com.START_END_INDEX),
            (com.CLASSIFY, com.MAXI, com.PROB, com.ACCURACY),
-           (com.TRANSLATE, com.DETECT_LANG)]
+           (com.TAGS, com.NOUN_PHRASES, com.SENTIMENT, com.WORDS)]
 
 
 def dialogue(t):
     for k in range(len(set_com[t])):
         print(f"{k+1}: ", set_com[t][k])
-    if t == 5:
-        return input(com.QUESTION_LAST)
+    if t == 0:
+        return input(com.QUESTION_FIRST)
+    elif t == 5:
+        return input(com.LAST_SET_COMS)
     else:
         return input(com.QUESTION)
 
 
 def first_coms(reply):
-    text = TextBlob(input(com.TEXT))
+    text = input(com.TEXT)
     if reply == '1':
-        print(text.tags)
+        lang = input(com.LANG)
+        print(translator.translate(text, dest=lang).text)
     if reply == '2':
-        print(text.noun_phrases)
-    if reply == '3':
-        print(text.sentiment)
-    if reply == '4':
-        print(text.words)
+        print(translator.detect(text).text)
 
 
 def second_coms(reply):
@@ -149,9 +150,13 @@ def fifth_coms(reply):
 
 
 def sixth_coms(reply):
-    text = input(com.TEXT)
+
+    text = TextBlob(input(com.TEXT))
     if reply == '1':
-        lang = input(com.LANG)
-        print(translator.translate(text, dest=lang).text)
+        print(text.tags)
     if reply == '2':
-        print(translator.detect(text).text)
+        print(text.noun_phrases)
+    if reply == '3':
+        print(text.sentiment)
+    if reply == '4':
+        print(text.words)
