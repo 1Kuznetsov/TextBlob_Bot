@@ -150,7 +150,6 @@ def fifth_coms(reply):
 
 
 def sixth_coms(reply):
-
     text = TextBlob(input(com.TEXT))
     if reply == '1':
         print(text.tags)
