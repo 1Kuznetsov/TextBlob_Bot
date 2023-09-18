@@ -6,7 +6,7 @@ i = 0
 print(com.GREETING)
 answer = dialogue(0)
 while answer.lower() != 'exit':
-    if answer.lower() == 'next':
+    if answer.lower() == 'next' and i < 5:
         i += 1
         answer = dialogue(i)
         continue

@@ -75,11 +75,20 @@ def third_coms(reply):
         else:
             print(Word(str(text)).synsets)
     if reply == '2':
+        transl_def = input(com.TRANSL_DEF)
         if len(text.words) > 1:
             number_word = int(input(com.NUM))
-            print(text.words[number_word-1].definitions)
+            res = text.words[number_word-1].definitions
+            print(res)
+            if transl_def != '0':
+                for item in res:
+                    print(translator.translate(item, dest=transl_def).text)
         else:
-            print(Word(str(text)).definitions)
+            res = Word(str(text)).definitions
+            print(res)
+            if transl_def != '0':
+                for item in res:
+                    print(translator.translate(item, dest=transl_def).text)
     if reply == '3':
         print(text.correct())
     if reply == '4':
@@ -143,6 +152,6 @@ def sixth_coms(reply):
     text = input(com.TEXT)
     if reply == '1':
         lang = input(com.LANG)
-        print(translator.translate(text, dest=lang))
+        print(translator.translate(text, dest=lang).text)
     if reply == '2':
-        print(translator.detect(text))
+        print(translator.detect(text).text)
