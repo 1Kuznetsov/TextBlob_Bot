@@ -1,5 +1,5 @@
 # Igor Kuznetsov
-
+# Used modules : googletrans v3.1.0a0, textblob v0.17.1
 
 import commands as com
 from functions import dialogue, first_coms, second_coms, third_coms, fourth_coms, fifth_coms, sixth_coms
