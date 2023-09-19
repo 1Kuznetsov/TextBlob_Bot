@@ -1,4 +1,9 @@
-# Igor Kuznetsov
+'''
+Аронова Александра -
+Мария Ядреева -
+Кузнецов Игорь - 100
+'''
+
 # Used modules : googletrans v3.1.0a0, textblob v0.17.1
 
 import commands as com
